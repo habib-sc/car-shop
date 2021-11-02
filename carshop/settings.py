@@ -25,14 +25,19 @@ SECRET_KEY = 'vl)om6_13yn%fwr%fzl+_djml(neo-+-%1^&d)wob63_7nu6oi'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost']
 
+LOGIN_REDIRECT_URL = 'dashboard'
 
 # Application definition
 
 INSTALLED_APPS = [
+    'contacts.apps.ContactsConfig',
+    'accounts.apps.AccountsConfig',
     'pages.apps.PagesConfig',
     'cars.apps.CarsConfig',
+
+
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -41,6 +46,17 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'ckeditor',
     'django.contrib.humanize',
+    #For FB & Google Login | Start
+    'django.contrib.sites',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    #For FB & Google Login | End
+
+    #Social Auth Providers | Start
+    'allauth.socialaccount.providers.facebook',
+    'allauth.socialaccount.providers.google',
+    #Social Auth Providers | End
 ]
 
 MIDDLEWARE = [
@@ -128,6 +144,8 @@ STATIC_URL = '/static/'
 
 # Mannually Added
 
+
+
 # Static
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
@@ -140,3 +158,23 @@ STATICFILES_DIRS = [
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 
+
+# messages
+from django.contrib.messages import constants as messages
+
+MESSAGE_TAGS = {
+    messages.ERROR: 'danger',
+}
+
+
+# Social Auth:
+SITE_ID = 1
+
+#Email Sending config
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = ''
+EMAIL_HOST_PASSWORD = ''
+DEFAULT_FROM_EMAIL = ''

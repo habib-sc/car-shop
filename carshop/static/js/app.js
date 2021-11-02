@@ -479,3 +479,8 @@ $(function () {
         }
     }).trigger("resize");
 })(jQuery);
+
+// Timeout
+setTimeout(function(){
+    $('#message').fadeOut('slow');
+}, 4000);

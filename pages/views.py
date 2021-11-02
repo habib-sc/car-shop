@@ -1,5 +1,7 @@
 from cars.models import Car
-from django.shortcuts import render
+from django.contrib import messages
+from django.core.mail import send_mail
+from django.shortcuts import redirect, render
 
 from .models import Team
 
@@ -40,4 +42,24 @@ def services(request):
     return render(request, 'pages/services.html')
 
 def contact(request):
+    if request.method == 'POST':
+        name = request.POST['name']
+        email = request.POST['email']
+        subject = request.POST['subject']
+        phone = request.POST['phone']
+        message = request.POST['message']
+
+        message_body = 'Name: ' + name + '. Email: ' + email + '. Phone: ' + phone + '. Message: ' + message
+
+        send_mail(
+            subject,
+            message_body,
+            'gameroxen@gmail.com',
+            ['habib97.cs@gmail.com'],
+            fail_silently=False,
+        )
+        messages.success(request, 'Thank you for contacting us. We will get back to you soon.')
+        return redirect('contact')
+
+
     return render(request, 'pages/contact.html')
