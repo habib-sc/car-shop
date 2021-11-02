@@ -27,7 +27,7 @@ SECRET_KEY = 'vl)om6_13yn%fwr%fzl+_djml(neo-+-%1^&d)wob63_7nu6oi'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['localhost']
+ALLOWED_HOSTS = ['hidden-journey-70491.herokuapp.com',]
 
 LOGIN_REDIRECT_URL = 'dashboard'
 
