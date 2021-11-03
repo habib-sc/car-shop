@@ -32,6 +32,7 @@ LOGIN_REDIRECT_URL = 'dashboard'
 # Application definition
 
 INSTALLED_APPS = [
+    'jazzmin',
     'contacts.apps.ContactsConfig',
     'accounts.apps.AccountsConfig',
     'pages.apps.PagesConfig',
@@ -144,6 +145,39 @@ STATIC_URL = '/static/'
 
 # Mannually Added
 
+JAZZMIN_SETTINGS = {
+    # title of the window (Will default to current_admin_site.site_title if absent or None)
+    "site_title": "Carzone Admin",
+
+    # Title on the login screen (19 chars max) (defaults to current_admin_site.site_header if absent or None)
+    "site_header": "Carzone",
+
+    # Title on the brand (19 chars max) (defaults to current_admin_site.site_header if absent or None)
+    "site_brand": "Carzone",
+
+    # Logo to use for your site, must be present in static files, used for brand on top left
+    "site_logo": "../static/img/logos/logo.png",
+
+    # CSS classes that are applied to the logo above
+    "site_logo_classes": "company-logo",
+
+    # Relative path to a favicon for your site, will default to site_logo if absent (ideally 32x32 px)
+    "site_icon": None,
+
+    # Welcome text on the login screen
+    "welcome_sign": "Welcome to the Carzone",
+
+    # Copyright on the footer
+    "copyright": "Carzone",
+
+    # The model admin to search from the search bar, search bar omitted if excluded
+    "search_model": "auth.User",
+
+    # Whether to aut expand the menu
+    "navigation_expanded": False,
+
+   
+}
 
 
 # Static
