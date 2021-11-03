@@ -108,8 +108,8 @@ WSGI_APPLICATION = 'carshop.wsgi.application'
 # }
 
 # syntax for dj_database_url
-# DATABASE = {'default', dj_database_url.config(default='postgres://user:pass@localhost/dbname')}
-DATABASE = {'default', dj_database_url.config(default='postgres://postgres:admin@localhost/carshop_db')}
+# DATABASE = {'default': dj_database_url.config(default='postgres://user:pass@localhost/dbname')}
+DATABASES = {'default': dj_database_url.config(default='postgres://postgres:admin@localhost/carshop_db')}
 
 
 # Password validation
